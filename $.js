@@ -1,12 +1,15 @@
 'use strict';
-/* Xcraft core bin shell extensions */
+
+var moduleName = 'bin';
 
 var path = require ('path');
 var fs   = require ('fs');
 
+var xLog      = require ('xcraft-core-log') (moduleName);
 var xFs       = require ('xcraft-core-fs');
 var xUtils    = require ('xcraft-core-utils');
 var xPlatform = require ('xcraft-core-platform');
+var xProcess  = require ('xcraft-core-process');
 var busClient = require ('xcraft-core-busclient');
 
 var cmd = {};
@@ -42,9 +45,20 @@ exports.xcraftCommands = function () {
         }
       };
 
-      cmd[bin] = function (argv) {
-        console.log (bin + ' : ' + argv);
-        busClient.events.send ('$.' + bin + '.finished');
+      cmd[bin] = function (msg) {
+        var args = [];
+
+        if (msg.data.argv) {
+          args.push (msg.data.argv);
+        }
+
+        xProcess.spawn (bin, args, function (err) {
+          if (err) {
+            xLog.err (err);
+          }
+
+          busClient.events.send ('$.' + bin + '.finished');
+        });
       };
     });
   });
