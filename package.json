@@ -12,6 +12,15 @@
     "ext",
     "binary"
   ],
+  "repository": {
+    "type": "file",
+    "url": "lib/xcraft-core-bin"
+  },
+  "dependencies": {
+    "xcraft-core-busclient": "0.1.0",
+    "xcraft-core-fs": "0.1.0",
+    "xcraft-core-utils": "0.1.0"
+  },
   "author": "Samuel Loup",
   "license": "MIT"
 }
