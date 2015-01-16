@@ -6,6 +6,7 @@ var fs   = require ('fs');
 
 var xFs       = require ('xcraft-core-fs');
 var xUtils    = require ('xcraft-core-utils');
+var xPlatform = require ('xcraft-core-platform');
 var busClient = require ('xcraft-core-busclient');
 
 var cmd = {};
@@ -19,13 +20,18 @@ var rc  = {};
 exports.xcraftCommands = function () {
   var paths = process.env.PATH.split (path.delimiter);
   paths.forEach (function (location) {
-    // TODO: other platforms
     if (!fs.existsSync (location)) {
       return;
     }
 
-    var bins = xFs.ls (location, /\.(exe|bat|cmd)$/);
+    var regex = xPlatform.getOs () === 'win' ? /\.(exe|bat|cmd)$/ : /.*/;
+
+    var bins = xFs.ls (location, regex);
     bins.forEach (function (bin) {
+      if (xPlatform.getOs () !== 'win' && !xFs.canExecute (bin)) {
+        return;
+      }
+
       rc[bin] = {
         desc: 'execute ' + bin,
         options: {
