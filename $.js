@@ -31,7 +31,7 @@ exports.xcraftCommands = function () {
 
     var bins = xFs.ls (location, regex);
     bins.forEach (function (bin) {
-      if (xPlatform.getOs () !== 'win' && !xFs.canExecute (bin)) {
+      if (xPlatform.getOs () !== 'win' && !xFs.canExecute (path.join (location, bin))) {
         return;
       }
 
