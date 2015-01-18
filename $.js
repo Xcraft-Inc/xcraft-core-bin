@@ -49,7 +49,7 @@ exports.xcraftCommands = function () {
         var args = [];
 
         if (msg.data.argv) {
-          args.push (msg.data.argv);
+          args = msg.data.argv;
         }
 
         xProcess.spawn (bin, args, function (err) {
