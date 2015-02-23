@@ -52,7 +52,7 @@ exports.xcraftCommands = function () {
           args = msg.data.argv;
         }
 
-        xProcess.spawn (bin, args, function (err) {
+        xProcess.spawn (bin, args, {}, function (err) {
           if (err) {
             xLog.err (err);
           }
