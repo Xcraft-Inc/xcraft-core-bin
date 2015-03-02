@@ -19,6 +19,7 @@
   "dependencies": {
     "xcraft-core-busclient": "0.1.0",
     "xcraft-core-fs": "0.1.0",
+    "xcraft-core-path": "0.1.0",
     "xcraft-core-platform": "0.1.0",
     "xcraft-core-process": "0.1.0",
     "xcraft-core-utils": "0.1.0"

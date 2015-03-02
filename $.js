@@ -10,6 +10,7 @@ var xFs       = require ('xcraft-core-fs');
 var xUtils    = require ('xcraft-core-utils');
 var xPlatform = require ('xcraft-core-platform');
 var xProcess  = require ('xcraft-core-process');
+var xPath     = require ('xcraft-core-path');
 var busClient = require ('xcraft-core-busclient');
 
 var cmd = {};
@@ -21,7 +22,7 @@ var rc  = {};
  * @returns {Object} The list and definitions of commands.
  */
 exports.xcraftCommands = function () {
-  var paths = process.env.PATH.split (path.delimiter);
+  var paths = xPath.getList ();
   paths.forEach (function (location) {
     if (!fs.existsSync (location)) {
       return;
