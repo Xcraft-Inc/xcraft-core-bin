@@ -2,7 +2,7 @@
   "name": "xcraft-core-bin",
   "version": "0.1.0",
   "description": "Xcraft shell extensions for calling binaries from env",
-  "main": "$.js",
+  "main": "sh.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

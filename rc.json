@@ -1,0 +1,11 @@
+{
+  "$": {
+    "desc": "run a system command",
+    "options": {
+      "params": {
+        "required": "command",
+        "optional": "args..."
+      }
+    }
+  }
+}
