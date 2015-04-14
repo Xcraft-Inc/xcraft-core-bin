@@ -5,7 +5,7 @@ var moduleName = 'bin';
 var path = require ('path');
 
 var xLog      = require ('xcraft-core-log') (moduleName);
-var xProcess  = require ('xcraft-core-process');
+var xProcess  = require ('xcraft-core-process') ('xlog', {mod: moduleName});
 var busClient = require ('xcraft-core-busclient');
 
 var cmd = {};
