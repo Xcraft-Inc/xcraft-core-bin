@@ -1,25 +1,24 @@
 'use strict';
 
-var moduleName = 'bin';
-
-var path = require ('path');
-
-var xLog      = require ('xcraft-core-log') (moduleName);
-var xProcess  = require ('xcraft-core-process') ({logger: 'xlog', mod: moduleName});
-var busClient = require ('xcraft-core-busclient').getGlobal ();
+const path = require ('path');
 
 var cmd = {};
 
-cmd.$ = function (msg) {
+cmd.$ = function (msg, response) {
+  const xProcess = require ('xcraft-core-process') ({
+    logger: 'xlog',
+    response: response
+  });
+
   var bin  = msg.data.command;
   var args = msg.data.args;
 
   xProcess.spawn (bin, args, {}, function (err) {
     if (err) {
-      xLog.err (err);
+      response.log.err (err);
     }
 
-    busClient.events.send ('sh.$.finished');
+    response.events.send ('sh.$.finished');
   });
 };
 
@@ -29,8 +28,9 @@ cmd.$ = function (msg) {
  * @returns {Object} The list and definitions of commands.
  */
 exports.xcraftCommands = function () {
+  const xUtils = require ('xcraft-core-utils');
   return {
     handlers: cmd,
-    rc: path.join (__dirname, './rc.json')
+    rc: xUtils.json.fromFile (path.join (__dirname, './rc.json'))
   };
 };
