@@ -4,7 +4,7 @@ const path = require ('path');
 
 var cmd = {};
 
-cmd.$ = function (msg, response) {
+cmd._ = function (msg, response) {
   const xProcess = require ('xcraft-core-process') ({
     logger: 'xlog',
     response: response
@@ -18,7 +18,7 @@ cmd.$ = function (msg, response) {
       response.log.err (err);
     }
 
-    response.events.send ('sh.$.finished');
+    response.events.send ('sh._.finished');
   });
 };
 

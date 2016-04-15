@@ -1,5 +1,5 @@
 {
-  "$": {
+  "_": {
     "desc": "run a system command",
     "options": {
       "params": {
