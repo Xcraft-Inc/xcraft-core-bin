@@ -7,7 +7,7 @@ var cmd = {};
 cmd._ = function (msg, response) {
   const xProcess = require ('xcraft-core-process') ({
     logger: 'xlog',
-    response: response
+    resp:   response
   });
 
   var bin  = msg.data.command;
