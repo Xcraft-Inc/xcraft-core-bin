@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Xcraft shell extensions for calling binaries from env",
   "main": "sh.js",
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,8 +16,8 @@
     "binary"
   ],
   "repository": {
-    "type": "file",
-    "url": "lib/xcraft-core-bin"
+    "type": "git",
+    "url": "git+https://github.com/Xcraft-Inc/xcraft-core-bin.git"
   },
   "dependencies": {
     "xcraft-core-busclient": "0.1.0",
@@ -24,6 +27,10 @@
     "xcraft-core-process": "0.1.0",
     "xcraft-core-utils": "0.1.0"
   },
-  "author": "Samuel Loup",
-  "license": "MIT"
+  "author": "Mathieu Schroeter & Samuel Loup",
+  "license": "MIT",
+   "bugs": {
+    "url": "https://github.com/Xcraft-Inc/xcraft-core-bin/issues"
+  },
+  "homepage": "https://github.com/Xcraft-Inc/xcraft-core-bin#readme"
 }
