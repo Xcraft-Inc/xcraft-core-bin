@@ -7,10 +7,10 @@ var cmd = {};
 cmd._ = function (msg, response) {
   const xProcess = require ('xcraft-core-process') ({
     logger: 'xlog',
-    resp:   response
+    resp: response,
   });
 
-  var bin  = msg.data.command;
+  var bin = msg.data.command;
   var args = msg.data.args;
 
   xProcess.spawn (bin, args, {}, function (err) {
@@ -31,6 +31,6 @@ exports.xcraftCommands = function () {
   const xUtils = require ('xcraft-core-utils');
   return {
     handlers: cmd,
-    rc: xUtils.json.fromFile (path.join (__dirname, './rc.json'))
+    rc: xUtils.json.fromFile (path.join (__dirname, './rc.json')),
   };
 };
