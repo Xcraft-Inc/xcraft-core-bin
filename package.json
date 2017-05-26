@@ -19,6 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/Xcraft-Inc/xcraft-core-bin.git"
   },
+  "config": {
+    "xcraft": {
+      "commands": true
+    }
+  },
   "dependencies": {
     "xcraft-core-process": "^1.0.0",
     "xcraft-core-utils": "^1.0.0"
