@@ -18,7 +18,7 @@ cmd._ = function (msg, response) {
       response.log.err (err);
     }
 
-    response.events.send ('sh._.finished');
+    response.events.send (`sh._.${msg.id}.finished`);
   });
 };
 
