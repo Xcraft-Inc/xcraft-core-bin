@@ -1,11 +1,11 @@
 'use strict';
 
-const path = require ('path');
+const path = require('path');
 
 var cmd = {};
 
-cmd._ = function (msg, response) {
-  const xProcess = require ('xcraft-core-process') ({
+cmd._ = function(msg, response) {
+  const xProcess = require('xcraft-core-process')({
     logger: 'xlog',
     resp: response,
   });
@@ -13,12 +13,12 @@ cmd._ = function (msg, response) {
   var bin = msg.data.command;
   var args = msg.data.args;
 
-  xProcess.spawn (bin, args, {}, function (err) {
+  xProcess.spawn(bin, args, {}, function(err) {
     if (err) {
-      response.log.err (err);
+      response.log.err(err);
     }
 
-    response.events.send (`sh._.${msg.id}.finished`);
+    response.events.send(`sh._.${msg.id}.finished`);
   });
 };
 
@@ -27,10 +27,10 @@ cmd._ = function (msg, response) {
  *
  * @returns {Object} The list and definitions of commands.
  */
-exports.xcraftCommands = function () {
-  const xUtils = require ('xcraft-core-utils');
+exports.xcraftCommands = function() {
+  const xUtils = require('xcraft-core-utils');
   return {
     handlers: cmd,
-    rc: xUtils.json.fromFile (path.join (__dirname, './rc.json')),
+    rc: xUtils.json.fromFile(path.join(__dirname, './rc.json')),
   };
 };
