@@ -1,5 +1,6 @@
 {
   "_": {
+    "parallel": true,
     "desc": "run a system command",
     "options": {
       "params": {
