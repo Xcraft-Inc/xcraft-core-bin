@@ -4,10 +4,10 @@ const path = require('path');
 
 var cmd = {};
 
-cmd._ = function(msg, response) {
+cmd._ = function(msg, resp) {
   const xProcess = require('xcraft-core-process')({
     logger: 'xlog',
-    resp: response,
+    resp,
   });
 
   var bin = msg.data.command;
@@ -15,10 +15,10 @@ cmd._ = function(msg, response) {
 
   xProcess.spawn(bin, args, {}, function(err) {
     if (err) {
-      response.log.err(err);
+      resp.log.err(err);
     }
 
-    response.events.send(`sh._.${msg.id}.finished`);
+    resp.events.send(`sh._.${msg.id}.finished`);
   });
 };
 
