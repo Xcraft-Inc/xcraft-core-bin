@@ -4,7 +4,7 @@ const path = require('path');
 
 var cmd = {};
 
-cmd._ = function(msg, resp) {
+cmd._ = function (msg, resp) {
   const xProcess = require('xcraft-core-process')({
     logger: 'xlog',
     resp,
@@ -13,7 +13,7 @@ cmd._ = function(msg, resp) {
   var bin = msg.data.command;
   var args = msg.data.args;
 
-  xProcess.spawn(bin, args, {}, function(err) {
+  xProcess.spawn(bin, args, {}, function (err) {
     if (err) {
       resp.log.err(err);
     }
@@ -27,7 +27,7 @@ cmd._ = function(msg, resp) {
  *
  * @returns {Object} The list and definitions of commands.
  */
-exports.xcraftCommands = function() {
+exports.xcraftCommands = function () {
   const xUtils = require('xcraft-core-utils');
   return {
     handlers: cmd,
