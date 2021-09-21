@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "xcraft-core-process": "^1.0.0",
-    "xcraft-core-utils": "^2.0.0"
+    "xcraft-core-utils": "^4.0.0"
   },
   "author": "Mathieu Schroeter & Samuel Loup",
   "license": "MIT",
