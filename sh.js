@@ -12,8 +12,16 @@ cmd._ = function (msg, resp) {
 
   var bin = msg.data.command;
   var args = msg.data.args;
+  const opts = {};
 
-  xProcess.spawn(bin, args, {}, function (err) {
+  if (
+    process.platform === 'win32' &&
+    (bin.endsWith('.cmd') || bin.endsWith('.bat'))
+  ) {
+    opts.shell = true;
+  }
+
+  xProcess.spawn(bin, args, opts, function (err) {
     if (err) {
       resp.log.err(err);
     }
